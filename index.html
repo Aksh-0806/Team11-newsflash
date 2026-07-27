@@ -1,1 +1,36 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsFlash - Tech News Reader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>NewsFlash - Tech News Reader</h1>
+</header>
+
+<main>
+    <h2>Categories</h2>
+
+    <div id="categories">
+        <button onclick="loadNews('javascript')">JavaScript</button>
+        <button onclick="loadNews('python')">Python</button>
+        <button onclick="loadNews('react')">React</button>
+        <button onclick="loadNews('ai')">AI</button>
+    </div>
+
+    <h2>Latest Articles</h2>
+
+    <div id="news-container">
+        Loading...
+    </div>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
