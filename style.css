@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root{
     --primary:#0d6efd;
     --bg:#f4f4f4;
@@ -130,4 +131,141 @@ button{
     width:100%;
 }
 
+=======
+:root{
+    --primary:#0d6efd;
+    --bg:#f4f4f4;
+    --text:#333;
+    --white:#fff;
+    --radius:10px;
+    --shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+header{
+    background:var(--primary);
+    color:var(--white);
+    text-align:center;
+    padding:20px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:15px;
+    background:#222;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffd700;
+}
+
+main{
+    width:90%;
+    max-width:1200px;
+    margin:20px auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+button{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#084298;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:var(--radius);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table,
+th,
+td{
+    border:1px solid #ddd;
+}
+
+th,
+td{
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+#news-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    button{
+        width:100%;
+    }
+
+    main{
+        width:95%;
+    }
+>>>>>>> 754483cf7e122a3473a523b212dcf1501e212161
 }
