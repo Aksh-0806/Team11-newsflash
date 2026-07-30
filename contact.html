@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NewsFlash</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header>
+    <h1>NewsFlash</h1>
+    <p>Contact Us</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="reading_list.html">Reading List</a>
+</nav>
+
+<main>
+
+<div class="card">
+    <h2>Contact Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label>Message</label>
+        <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+
+</div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 NewsFlash. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

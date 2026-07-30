@@ -1,28 +1,130 @@
+document.addEventListener("DOMContentLoaded", () => {
 
-const newsContainer = document.getElementById("news-container");
+    const searchInput = document.getElementById("searchInput");
 
-function loadNews(tag) {
-    newsContainer.innerHTML = "<p>Loading...</p>";
+    if (searchInput) {
+        searchInput.addEventListener("keyup", searchNews);
+    }
 
-    fetch(`https://dev.to/api/articles?tag=${tag}`)
-        .then(response => response.json())
-        .then(data => {
-            newsContainer.innerHTML = "";
+    highlightActivePage();
+});
 
-            data.forEach(article => {
-                newsContainer.innerHTML += `
-                    <div class="card">
-                        <h3>${article.title}</h3>
-                        <p>${article.description || "No description available."}</p>
-                        <a href="${article.url}" target="_blank">Read More</a>
-                    </div>
-                `;
-            });
-        })
-        .catch(() => {
-            newsContainer.innerHTML = "<p>Couldn't fetch data.</p>";
-        });
+function searchNews() {
+
+    let input = document.getElementById("searchInput").value.toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    let found = false;
+
+    cards.forEach(card => {
+
+        let text = card.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            card.style.display = "block";
+
+            found = true;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    let msg = document.getElementById("noResults");
+
+    if (msg) {
+
+        msg.style.display = found ? "none" : "block";
+
+    }
+
 }
 
-// Load JavaScript articles when the page opens
-loadNews("javascript");
+function filterNews(category) {
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+        if (category === "all") {
+
+            card.style.display = "block";
+
+        }
+
+        else if (card.classList.contains(category)) {
+
+            card.style.display = "block";
+
+        }
+
+        else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+function highlightActivePage() {
+
+    let links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
+
+        if (link.href === window.location.href) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark-mode");
+
+}
+
+function validateForm() {
+
+    let name = document.getElementById("name").value.trim();
+
+    let email = document.getElementById("email").value.trim();
+
+    let message = document.getElementById("message").value.trim();
+
+    if (name === "" || email === "" || message === "") {
+
+        alert("Please fill all fields");
+
+        return false;
+
+    }
+
+    alert("Form Submitted Successfully");
+
+    return true;
+
+}
+
+function addToReadingList(title) {
+
+    let list = JSON.parse(localStorage.getItem("readingList")) || [];
+
+    list.push(title);
+
+    localStorage.setItem("readingList", JSON.stringify(list));
+
+    alert("Added to Reading List");
+
+}
